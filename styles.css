@@ -1,0 +1,106 @@
+*, *::before, *::after {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --image-dimesion: 70px;
+    --top-pos: 50%;
+    --left-pos: 50%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    gap: 2.75rem;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(217deg, rgba(0,0,0,1) 0%, rgba(37,37,42,1) 35%, rgba(17,23,24,1) 100%);
+    background-size: 400%;
+    animation: movebg 5s infinite;
+}
+
+h5 {
+    color: white;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+span {
+    font-size: 8px;
+}
+
+.boundary__case {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    max-width: 350px;
+    margin: 0 auto;
+    border: 5px solid crimson;
+    border-radius: 20px;
+    padding: 1rem;
+    overflow: hidden;
+    box-shadow: 0.15rem 0.075rem 0.85rem rgb(255, 255, 255);
+    z-index: 2;
+}
+
+.boundary__case::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/img/white_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    opacity: 0.85;
+    z-index: 1; 
+}
+
+.image__case {
+    position: absolute;
+    top: 75px;
+    left: 135px;
+    transition: all 0.15s ease-in-out;
+    z-index: 5;
+}
+
+.image__case img {
+    height: var(--image-dimesion);
+    width: auto;
+}
+
+@keyframes movebg {
+    25% {
+        background-size: 200%;
+    }
+
+    50% {
+        background-size: 350%;
+    }
+
+    75% {
+        background-size: 120%;
+    }
+
+    100% {
+        background-size: 350%;
+    }
+}
