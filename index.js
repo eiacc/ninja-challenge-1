@@ -1,16 +1,18 @@
-let hero = document.getElementById('hero').parentElement;
+let hero = document.getElementById('image__case')
+const innerDiv = document.createElement('div')
+innerDiv.classList.add('down1')
+hero.appendChild(innerDiv)
+console.log(hero)
 let countStep = 0
 let x = 135
 let y = 75
 
 function updatePos() {
-    hero.style.left = `${x}px`
-    hero.style.top = `${y}px`
+    innerDiv.style.left = `${x}px`
+    innerDiv.style.top = `${y}px`
 }
 
-
-
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keyup', (e) => {
     // countStep
     // if step % 2 == 0, change image to (down2) else image set to (down1) [keycodes 40 and 38]
     // if step % 2 == 0, change image to (top2) else image set to (top1) [keycodes 40 and 38]
@@ -35,7 +37,13 @@ document.addEventListener('keydown', (e) => {
         } else {
             console.log(`pressed ~> ${e.key}`)
             y = y + 15
-            countStep % 2 === 0 ? hero.firstElementChild.src = `./assets/img/down2.png` : hero.firstElementChild.src = `./assets/img/down1.png`
+            if(countStep % 2 === 0) {
+                innerDiv.className = ''
+                innerDiv.classList.add('down2')
+            } else {
+                innerDiv.className = ''
+                innerDiv.classList.add('down1')
+            }
         }
     } else if (e.keyCode === 38) {
         /*
@@ -49,7 +57,14 @@ document.addEventListener('keydown', (e) => {
         } else {
             console.log(`pressed ~> ${e.key}`)
             y = y - 15
-            countStep % 2 === 0 ? hero.firstElementChild.src = `./assets/img/top2.png` : hero.firstElementChild.src = `./assets/img/top1.png`          
+            // countStep % 2 === 0 ? hero.firstElementChild.src = `./assets/img/top2.png` : hero.firstElementChild.src = `./assets/img/top1.png`    
+            if (countStep % 2 === 0) {
+                innerDiv.className = ''
+                innerDiv.classList.add('top2')
+            } else {
+                innerDiv.className = ''
+                innerDiv.classList.add('top1')
+            }      
         }
     } else if (e.keyCode === 37) {
         /*
@@ -63,7 +78,13 @@ document.addEventListener('keydown', (e) => {
         } else {
             console.log(`pressed ~> ${e.key}`)
             x = x - 15   
-            countStep % 2 === 0 ? hero.firstElementChild.src = `./assets/img/left2.png` : hero.firstElementChild.src = `./assets/img/left1.png`
+            if (countStep % 2 === 0) {
+                innerDiv.className = ''
+                innerDiv.classList.add('left2')
+            } else {
+                innerDiv.className = ''
+                innerDiv.classList.add('left1')
+            } 
         }
     } else if (e.keyCode === 39) {
         /*
@@ -77,7 +98,13 @@ document.addEventListener('keydown', (e) => {
         } else {
             console.log(`pressed ~> ${e.key}`)
             x = x + 15
-            countStep % 2 === 0 ? hero.firstElementChild.src = `./assets/img/right2.png` : hero.firstElementChild.src = `./assets/img/right1.png` 
+            if (countStep % 2 === 0) {
+                innerDiv.className = ''
+                innerDiv.classList.add('right2')
+            } else {
+                innerDiv.className = ''
+                innerDiv.classList.add('right1')
+            }  
         }
     } else {        
         console.log('key ' + e.key   + ' is not recognized')
