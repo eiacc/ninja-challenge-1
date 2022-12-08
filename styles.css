@@ -87,6 +87,37 @@ span {
     width: auto;
 }
 
+/*
+    image as bg
+*/
+.down1,
+.down2,
+.left1,
+.left2,
+.right1,
+.right2,
+.top1,
+.top2 {
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    max-height: 75px;
+    width: 50px;
+    z-index: 10;
+    position: absolute;
+    top: 75px;
+    left: 135px;
+}
+
+.down1 { background-image: url('./assets/img/down1.png') }
+.down2 { background-image: url('./assets/img/down2.png') }
+.left1 { background-image: url('./assets/img/left1.png') }
+.left2 { background-image: url('./assets/img/left2.png') }
+.right1 { background-image: url('./assets/img/right1.png') }
+.right2 { background-image: url('./assets/img/right2.png') }
+.top1 { background-image: url('./assets/img/top1.png') }
+.top2 { background-image: url('./assets/img/top2.png') }
+
 @keyframes movebg {
     25% {
         background-size: 200%;
